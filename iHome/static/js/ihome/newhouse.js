@@ -29,10 +29,20 @@ $(document).ready(function(){
         
         var params = {};
         // 收集$(this)表单中的带有name的input标签数据，封装到数组中
-        $(this).serializeArray().map(function (x) {
-            
-        })
-            
+        $(this).serializeArray().map(function (obj) {
+            params[obj.name] = obj.value;
+        });
+        var facilities = [];
+        //将表单中的被选中的checkbox筛选出来
+        // 选中input框勾选中的标签，且name属性等于facility的所有标签
+        // function中的参数i是第几个的下标，elem是当前的标签
+        $(':checkbox:checkbox[name=facility]').each(function (i, elem) {
+
+           facilities[i] = elem.value;
+        });
+        //将设备列表添加到params中
+        params['facility'] = facilities
+
         $.ajax({
             url:'/api/1.0/houses',
             type:'post',
@@ -41,12 +51,16 @@ $(document).ready(function(){
             headers:{'CSRFToken':getCookie('csrf_token')},
             success:function (response) {
                 if(response.errno=='0'){
+                    //发布新的房源信息成功后的操作：隐藏基本信息的表单，展现上传图片的表单
+                    $('#form-house-info').hide();
+                    $('#form-house-image').show();
+                }else if(response.errno=='4101'){
+                    location.href= 'login.html'
                 }else {
                     alert(response.errmsg)
-                };
+                }
             }
         })
-        
     });
     
     
