@@ -24,7 +24,32 @@ $(document).ready(function(){
 
 
     // TODO: 处理房屋基本信息提交的表单数据
-
+    $('#form-house-info').submit(function (event) {
+        event.preventDefault();
+        
+        var params = {};
+        // 收集$(this)表单中的带有name的input标签数据，封装到数组中
+        $(this).serializeArray().map(function (x) {
+            
+        })
+            
+        $.ajax({
+            url:'/api/1.0/houses',
+            type:'post',
+            data:JSON.stringify(params),
+            contentType:'application/json',
+            headers:{'CSRFToken':getCookie('csrf_token')},
+            success:function (response) {
+                if(response.errno=='0'){
+                }else {
+                    alert(response.errmsg)
+                };
+            }
+        })
+        
+    });
+    
+    
     // TODO: 处理图片表单的数据
 
 });

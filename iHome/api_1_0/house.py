@@ -26,4 +26,4 @@ def get_areas():
         area_dict_list.append(area.to_dict())
 
     # 3.响应城区信息
-    return jsonify(errno=RET.OK, errmsg=area_dict_list)
+    return jsonify(errno=RET.OK, data=area_dict_list)
