@@ -41,14 +41,14 @@ $(document).ready(function(){
            facilities[i] = elem.value;
         });
         //将设备列表添加到params中
-        params['facility'] = facilities
+        params['facility'] = facilities;
 
         $.ajax({
             url:'/api/1.0/houses',
             type:'post',
             data:JSON.stringify(params),
             contentType:'application/json',
-            headers:{'CSRFToken':getCookie('csrf_token')},
+            headers:{'X-CSRFToken':getCookie('csrf_token')},
             success:function (response) {
                 if(response.errno=='0'){
                     //发布新的房源信息成功后的操作：隐藏基本信息的表单，展现上传图片的表单
