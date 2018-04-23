@@ -3147,3 +3147,8 @@ DEBUG connectionpool.py:396 http://up.qiniu.com:80 "POST / HTTP/1.1" 200 76
 INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:35:05] "POST /api/1.0/houses/image HTTP/1.1" 200 -
 DEBUG connectionpool.py:396 http://up.qiniu.com:80 "POST / HTTP/1.1" 200 76
 INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:35:14] "POST /api/1.0/houses/image HTTP/1.1" 200 -
+INFO _internal.py:87  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:87  * Restarting with stat
+WARNING _internal.py:87  * Debugger is active!
+INFO _internal.py:87  * Debugger PIN: 243-669-297
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:42:22] "GET /api/1.0/houses/8 HTTP/1.1" 200 -

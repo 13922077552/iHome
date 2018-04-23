@@ -8,6 +8,30 @@ from iHome.utils.common import login_required
 from iHome import db, constants
 from iHome.utils.image_storage import upload_image
 
+
+@api.route('/houses/<house_id>', methods=['GET'])
+def get_house_detail(house_id):
+    """提供房屋详情数据
+    1.直接查询house_id对应的房屋信息
+    2.构造房屋详情数据
+    3.响应房屋详情数据
+    """
+    # 1.直接查询house_id对应的房屋信息
+    try:
+        house = House.query.get(house_id)
+    except Exception as e:
+        current_app.logger.error(e)
+        return jsonify(errno=RET.DBERR, errmsg='查询房屋数据失败')
+    if not house:
+        return jsonify(errno=RET.NODATA, errmsg='房屋不存在')
+
+    # 2.构造房屋详情数据
+    response_house_detail = house.to_full_dict()
+
+    # 3.响应房屋详情数据
+    return jsonify(errno=RET.OK, errmsg='OK', data=response_house_detail)
+
+
 @api.route('/houses/image', methods=['POST'])
 @login_required
 def upload_house_image():
