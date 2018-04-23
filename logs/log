@@ -3359,3 +3359,23 @@ DEBUG connectionpool.py:208 Starting new HTTP connection (5): up.qiniu.com
 DEBUG connectionpool.py:208 Starting new HTTP connection (5): upload.qiniu.com
 DEBUG connectionpool.py:396 http://upload.qiniu.com:80 "POST / HTTP/1.1" 200 76
 INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:10:12] "POST /api/1.0/houses/image HTTP/1.1" 200 -
+DEBUG connectionpool.py:208 Starting new HTTP connection (6): up.qiniu.com
+DEBUG connectionpool.py:396 http://up.qiniu.com:80 "POST / HTTP/1.1" 200 76
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:12:29] "POST /api/1.0/houses/image HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:13:12] "GET /detail.html?id=8 HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:13:14] "GET /static/plugins/swiper/css/swiper.min.css HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:13:15] "GET /static/css/ihome/detail.css HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:13:19] "GET /static/plugins/swiper/js/swiper.jquery.min.js HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:13:19] "GET /static/js/ihome/detail.js HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:13:22] "GET /api/1.0/houses/8 HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:13:22] "GET /detail.html?id=1 HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:13:22] "GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map HTTP/1.1" 404 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:13:28] "GET /api/1.0/houses/1 HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:13:28] "GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map HTTP/1.1" 404 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:13:33] "GET /detail.html?id=1 HTTP/1.1" 304 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:13:33] "GET /api/1.0/houses/1 HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:13:33] "GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map HTTP/1.1" 404 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:13:49] "GET /detail.html?id=11 HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:13:53] "GET /api/1.0/houses/11 HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:13:53] "GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map HTTP/1.1" 404 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:13:54] "GET /static/images/houseicon_sprite.png HTTP/1.1" 200 -
