@@ -1,11 +1,72 @@
 # -*- coding: utf-8 -*-
 # 房屋模块
 from flask import current_app, jsonify, request, g
-from iHome.models import Area, House, Facility
+from iHome.models import Area, House, Facility, HouseImage
 from iHome.utils.response_code import RET
 from . import api
 from iHome.utils.common import login_required
-from iHome import db
+from iHome import db, constants
+from iHome.utils.image_storage import upload_image
+
+@api.route('/houses/image', methods=['POST'])
+@login_required
+def upload_house_image():
+    """上传房屋图片
+    0.判断是否登录
+    1.接受参数，image_data,house_id
+    2.使用house_id，查询房屋信息，只有当房屋存在时，才会上传图片
+    3.调用上传图片的工具，上传房屋的图片
+    4.创建HouseImage模型对象，并保存房屋图片key，保存到数据库
+    5.响应结果
+    """
+    # 1.接受参数，image_data,house_id
+    try:
+        image_data = request.files.get('house_image')
+    except Exception as e:
+        current_app.logger.error(e)
+        return jsonify(errno=RET.PARAMERR, errmsg="图⽚有误")
+    house_id = request.form.get('house_id')
+    if not house_id:
+        return jsonify(errno=RET.PARAMERR, errmsg="缺少必传参数")
+    # 获取房屋模型对象
+    # 2.使用house_id，查询房屋信息，只有当房屋存在时，才会上传图片
+    try:
+        house = House.query.get(house_id)
+    except Exception as e:
+        current_app.logger.error(e)
+        return jsonify(errno=RET.DBERR, errmsg='查询房屋数据失败')
+    if not house:
+        return jsonify(errno=RET.NODATA, errmsg='房屋不存在')
+
+    # 3.调用上传图片的工具，上传房屋的图片
+    try:
+        key = upload_image(image_data)
+    except Exception as e:
+        current_app.logger.error(e)
+        return jsonify(errno=RET.THIRDERR, errmsg='上传图⽚失败')
+
+    # 4.创建HouseImage模型对象，并保存房屋图片key，保存到数据库
+    house_image = HouseImage()
+    house_image.house_id = house_id
+    house_image.url = key
+
+    # 给房屋设置默认的图片
+    if not house.index_image_url:
+        house.index_image_url = key
+
+    try:
+        db.session.add(house_image)
+        db.session.commit()
+    except Exception as e:
+        current_app.logger.error(e)
+        db.session.rollback()
+        return jsonify(errno=RET.DBERR, errmsg='保存房屋图⽚数据失败')
+
+    # 5.响应结果
+    house_image_url = constants.QINIU_DOMIN_PREFIX + key
+    return jsonify(errno=RET.OK, errmsg='上传房屋图⽚成功', data={'house_image_url': house_image_url})
+
+
 @api.route('/houses', methods=['POST'])
 @login_required
 def pub_house():
