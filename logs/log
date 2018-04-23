@@ -3152,3 +3152,210 @@ INFO _internal.py:87  * Restarting with stat
 WARNING _internal.py:87  * Debugger is active!
 INFO _internal.py:87  * Debugger PIN: 243-669-297
 INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:42:22] "GET /api/1.0/houses/8 HTTP/1.1" 200 -
+INFO _internal.py:87  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:87  * Restarting with stat
+WARNING _internal.py:87  * Debugger is active!
+INFO _internal.py:87  * Debugger PIN: 243-669-297
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:52:22] "GET /detall.html?id=8 HTTP/1.1" 404 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:52:51] "GET /detail.html?id=8 HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:52:52] "GET /static/plugins/swiper/css/swiper.min.css HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:52:52] "GET /static/css/ihome/detail.css HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:52:56] "GET /static/plugins/swiper/js/swiper.jquery.min.js HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:52:56] "GET /static/js/ihome/detail.js HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:53:01] "GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map HTTP/1.1" 404 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:53:19] "GET /detail.html?id=8 HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:53:20] "GET /static/plugins/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:53:20] "GET /static/plugins/font-awesome/css/font-awesome.min.css HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:53:20] "GET /static/css/reset.css HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:53:20] "GET /static/plugins/swiper/css/swiper.min.css HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:53:20] "GET /static/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:53:20] "GET /static/css/ihome/main.css HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:53:20] "GET /static/css/ihome/detail.css HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:53:20] "GET /static/js/jquery.min.js HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:53:20] "GET /static/plugins/bootstrap/js/bootstrap.min.js HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:53:20] "GET /static/plugins/swiper/js/swiper.jquery.min.js HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:53:21] "GET /static/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:53:21] "GET /static/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:53:21] "GET /static/js/template.js HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:53:21] "GET /static/js/ihome/detail.js HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:53:22] "GET /static/plugins/bootstrap/css/bootstrap.min.css.map HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:53:24] "GET /static/plugins/font-awesome/fonts/fontawesome-webfont.woff2?v=4.6.3 HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:53:26] "GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map HTTP/1.1" 404 -
+INFO _internal.py:87  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:87  * Restarting with stat
+WARNING _internal.py:87  * Debugger is active!
+INFO _internal.py:87  * Debugger PIN: 243-669-297
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:54:33] "GET /detail.html?id=8 HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:54:34] "GET /static/plugins/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:54:34] "GET /static/plugins/font-awesome/css/font-awesome.min.css HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:54:34] "GET /static/css/reset.css HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:54:34] "GET /static/plugins/swiper/css/swiper.min.css HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:54:34] "GET /static/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:54:34] "GET /static/css/ihome/main.css HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:54:34] "GET /static/css/ihome/detail.css HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:54:34] "GET /static/js/jquery.min.js HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:54:34] "GET /static/plugins/bootstrap/js/bootstrap.min.js HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:54:34] "GET /static/plugins/swiper/js/swiper.jquery.min.js HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:54:34] "GET /static/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:54:34] "GET /static/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:54:34] "GET /static/js/template.js HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:54:34] "GET /static/js/ihome/detail.js HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:54:34] "GET /static/plugins/bootstrap/css/bootstrap.min.css.map HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:54:35] "GET /static/plugins/font-awesome/fonts/fontawesome-webfont.woff2?v=4.6.3 HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:54:39] "GET /api/1.0/houses/8 HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:54:39] "GET /static/plugins/swiper/js/maps/swiper.jquery.min.js.map HTTP/1.1" 404 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:54:41] "GET /static/images/houseicon_sprite.png HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:55:56] "GET /profile.html HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:55:57] "GET /static/css/ihome/profile.css HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:55:57] "GET /static/js/jquery.form.min.js HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:55:58] "GET /static/js/ihome/profile.js?v=5 HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:55:59] "GET /api/1.0/users HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:56:19] "GET /api/1.0/users HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:56:43] "GET /api/1.0/areas HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:56:51] "GET /api/1.0/users HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:57:20] "GET /profile.html HTTP/1.1" 304 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:57:21] "GET /api/1.0/users HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:58:34] "GET /newhouse.html HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:58:34] "GET /static/css/ihome/newhouse.css HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:58:34] "GET /static/js/ihome/newhouse.js?v=3 HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:58:35] "GET /api/1.0/areas HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 20:58:52] "POST /api/1.0/houses HTTP/1.1" 200 -
+DEBUG retry.py:200 Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None)
+DEBUG connectionpool.py:208 Starting new HTTP connection (1): up.qiniu.com
+DEBUG retry.py:390 Incremented Retry for (url='/'): Retry(total=2, connect=None, read=None, redirect=None, status=None)
+WARNING connectionpool.py:663 Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f2906cca190>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution',)': /
+DEBUG connectionpool.py:208 Starting new HTTP connection (2): up.qiniu.com
+DEBUG retry.py:390 Incremented Retry for (url='/'): Retry(total=1, connect=None, read=None, redirect=None, status=None)
+WARNING connectionpool.py:663 Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f2906ccad90>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution',)': /
+DEBUG connectionpool.py:208 Starting new HTTP connection (3): up.qiniu.com
+DEBUG retry.py:390 Incremented Retry for (url='/'): Retry(total=0, connect=None, read=None, redirect=None, status=None)
+WARNING connectionpool.py:663 Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f2906ccaf10>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution',)': /
+DEBUG connectionpool.py:208 Starting new HTTP connection (4): up.qiniu.com
+DEBUG connectionpool.py:208 Starting new HTTP connection (1): upload.qiniu.com
+DEBUG retry.py:390 Incremented Retry for (url='/'): Retry(total=2, connect=None, read=None, redirect=None, status=None)
+WARNING connectionpool.py:663 Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f2906cca610>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution',)': /
+DEBUG connectionpool.py:208 Starting new HTTP connection (2): upload.qiniu.com
+DEBUG retry.py:390 Incremented Retry for (url='/'): Retry(total=1, connect=None, read=None, redirect=None, status=None)
+WARNING connectionpool.py:663 Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f2906c96110>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution',)': /
+DEBUG connectionpool.py:208 Starting new HTTP connection (3): upload.qiniu.com
+DEBUG retry.py:390 Incremented Retry for (url='/'): Retry(total=0, connect=None, read=None, redirect=None, status=None)
+WARNING connectionpool.py:663 Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f2906c96310>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution',)': /
+DEBUG connectionpool.py:208 Starting new HTTP connection (4): upload.qiniu.com
+ERROR house.py:69 上传图片失败
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:01:43] "POST /api/1.0/houses/image HTTP/1.1" 200 -
+DEBUG connectionpool.py:208 Starting new HTTP connection (5): up.qiniu.com
+DEBUG retry.py:390 Incremented Retry for (url='/'): Retry(total=2, connect=None, read=None, redirect=None, status=None)
+WARNING connectionpool.py:663 Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f2906c96d50>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution',)': /
+DEBUG connectionpool.py:208 Starting new HTTP connection (6): up.qiniu.com
+DEBUG retry.py:390 Incremented Retry for (url='/'): Retry(total=1, connect=None, read=None, redirect=None, status=None)
+WARNING connectionpool.py:663 Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f2906c96e90>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution',)': /
+DEBUG connectionpool.py:208 Starting new HTTP connection (7): up.qiniu.com
+DEBUG retry.py:390 Incremented Retry for (url='/'): Retry(total=0, connect=None, read=None, redirect=None, status=None)
+WARNING connectionpool.py:663 Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f2906c96750>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution',)': /
+DEBUG connectionpool.py:208 Starting new HTTP connection (8): up.qiniu.com
+INFO _internal.py:87  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:87  * Restarting with stat
+WARNING _internal.py:87  * Debugger is active!
+INFO _internal.py:87  * Debugger PIN: 243-669-297
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:03:21] "GET /newhouse.html HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:03:22] "GET /static/plugins/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:03:23] "GET /static/plugins/font-awesome/css/font-awesome.min.css HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:03:23] "GET /static/css/reset.css HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:03:23] "GET /static/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:03:23] "GET /static/css/ihome/main.css HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:03:23] "GET /static/css/ihome/newhouse.css HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:03:23] "GET /static/js/jquery.min.js HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:03:23] "GET /static/js/jquery.form.min.js HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:03:23] "GET /static/js/template.js HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:03:23] "GET /static/plugins/bootstrap/js/bootstrap.min.js HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:03:23] "GET /static/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:03:23] "GET /static/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:03:23] "GET /static/js/ihome/newhouse.js?v=3 HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:03:23] "GET /static/plugins/font-awesome/fonts/fontawesome-webfont.woff2?v=4.6.3 HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:03:23] "GET /static/plugins/bootstrap/css/bootstrap.min.css.map HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:03:30] "GET /api/1.0/areas HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:03:40] "POST /api/1.0/houses HTTP/1.1" 200 -
+DEBUG retry.py:200 Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None)
+DEBUG connectionpool.py:208 Starting new HTTP connection (1): up.qiniu.com
+DEBUG retry.py:390 Incremented Retry for (url='/'): Retry(total=2, connect=None, read=None, redirect=None, status=None)
+WARNING connectionpool.py:663 Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7feea90acdd0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution',)': /
+DEBUG connectionpool.py:208 Starting new HTTP connection (2): up.qiniu.com
+DEBUG retry.py:390 Incremented Retry for (url='/'): Retry(total=1, connect=None, read=None, redirect=None, status=None)
+WARNING connectionpool.py:663 Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7feea90acfd0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution',)': /
+DEBUG connectionpool.py:208 Starting new HTTP connection (3): up.qiniu.com
+INFO _internal.py:87  * Detected change in '/home/python/Desktop/iHome_flask/iHome/api_1_0/house.py', reloading
+INFO _internal.py:87  * Restarting with stat
+WARNING _internal.py:87  * Debugger is active!
+INFO _internal.py:87  * Debugger PIN: 243-669-297
+DEBUG retry.py:200 Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None)
+DEBUG connectionpool.py:208 Starting new HTTP connection (1): up.qiniu.com
+INFO _internal.py:87  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py:87  * Restarting with stat
+WARNING _internal.py:87  * Debugger is active!
+INFO _internal.py:87  * Debugger PIN: 243-669-297
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:07:45] "GET /profile.html HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:07:46] "GET /static/plugins/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:07:46] "GET /static/plugins/font-awesome/css/font-awesome.min.css HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:07:46] "GET /static/css/reset.css HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:07:46] "GET /static/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:07:46] "GET /static/css/ihome/main.css HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:07:46] "GET /static/css/ihome/profile.css HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:07:46] "GET /static/js/jquery.min.js HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:07:46] "GET /static/js/jquery.form.min.js HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:07:46] "GET /static/plugins/bootstrap/js/bootstrap.min.js HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:07:46] "GET /static/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:07:46] "GET /static/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:07:46] "GET /static/js/ihome/profile.js?v=5 HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:07:47] "GET /static/plugins/bootstrap/css/bootstrap.min.css.map HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:07:47] "GET /static/plugins/font-awesome/fonts/fontawesome-webfont.woff2?v=4.6.3 HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:07:52] "GET /api/1.0/users HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:07:57] "GET /newhouse.html HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:07:57] "GET /static/css/ihome/newhouse.css HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:07:57] "GET /static/js/template.js HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:07:57] "GET /static/js/ihome/newhouse.js?v=3 HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:08:00] "GET /api/1.0/areas HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:08:01] "GET /newhouse.html HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:08:02] "GET /static/plugins/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:08:02] "GET /static/plugins/font-awesome/css/font-awesome.min.css HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:08:02] "GET /static/css/reset.css HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:08:02] "GET /static/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:08:02] "GET /static/css/ihome/main.css HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:08:02] "GET /static/css/ihome/newhouse.css HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:08:02] "GET /static/js/jquery.min.js HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:08:02] "GET /static/js/jquery.form.min.js HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:08:02] "GET /static/js/template.js HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:08:02] "GET /static/plugins/bootstrap/js/bootstrap.min.js HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:08:02] "GET /static/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:08:02] "GET /static/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:08:03] "GET /static/js/ihome/newhouse.js?v=3 HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:08:03] "GET /static/plugins/font-awesome/fonts/fontawesome-webfont.woff2?v=4.6.3 HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:08:03] "GET /static/plugins/bootstrap/css/bootstrap.min.css.map HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:08:03] "GET /api/1.0/areas HTTP/1.1" 200 -
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:08:25] "POST /api/1.0/houses HTTP/1.1" 200 -
+DEBUG retry.py:200 Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None)
+DEBUG connectionpool.py:208 Starting new HTTP connection (1): up.qiniu.com
+DEBUG retry.py:390 Incremented Retry for (url='/'): Retry(total=2, connect=None, read=None, redirect=None, status=None)
+WARNING connectionpool.py:663 Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f219a400bd0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution',)': /
+DEBUG connectionpool.py:208 Starting new HTTP connection (2): up.qiniu.com
+DEBUG retry.py:390 Incremented Retry for (url='/'): Retry(total=1, connect=None, read=None, redirect=None, status=None)
+WARNING connectionpool.py:663 Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f219a400dd0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution',)': /
+DEBUG connectionpool.py:208 Starting new HTTP connection (3): up.qiniu.com
+DEBUG retry.py:390 Incremented Retry for (url='/'): Retry(total=0, connect=None, read=None, redirect=None, status=None)
+WARNING connectionpool.py:663 Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f219a400f50>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution',)': /
+DEBUG connectionpool.py:208 Starting new HTTP connection (4): up.qiniu.com
+DEBUG connectionpool.py:208 Starting new HTTP connection (1): upload.qiniu.com
+DEBUG retry.py:390 Incremented Retry for (url='/'): Retry(total=2, connect=None, read=None, redirect=None, status=None)
+WARNING connectionpool.py:663 Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f219a400e10>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution',)': /
+DEBUG connectionpool.py:208 Starting new HTTP connection (2): upload.qiniu.com
+DEBUG retry.py:390 Incremented Retry for (url='/'): Retry(total=1, connect=None, read=None, redirect=None, status=None)
+WARNING connectionpool.py:663 Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f219a3aa150>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution',)': /
+DEBUG connectionpool.py:208 Starting new HTTP connection (3): upload.qiniu.com
+DEBUG retry.py:390 Incremented Retry for (url='/'): Retry(total=0, connect=None, read=None, redirect=None, status=None)
+WARNING connectionpool.py:663 Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f219a3aa350>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution',)': /
+DEBUG connectionpool.py:208 Starting new HTTP connection (4): upload.qiniu.com
+ERROR house.py:69 上传图片失败
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:09:07] "POST /api/1.0/houses/image HTTP/1.1" 200 -
+DEBUG connectionpool.py:208 Starting new HTTP connection (5): up.qiniu.com
+DEBUG connectionpool.py:208 Starting new HTTP connection (5): upload.qiniu.com
+DEBUG connectionpool.py:396 http://upload.qiniu.com:80 "POST / HTTP/1.1" 200 76
+INFO _internal.py:87 127.0.0.1 - - [23/Apr/2018 21:10:12] "POST /api/1.0/houses/image HTTP/1.1" 200 -
