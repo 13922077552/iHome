@@ -2,7 +2,6 @@
 # 房屋模块
 from flask import current_app, jsonify
 from iHome.models import Area
-# from iHome.utils.response_code import RET
 from iHome.utils.response_code import RET
 from . import api
 
