@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # 房屋模块
 from flask import current_app, jsonify, request, g
-from iHome.models import Area, House
+from iHome.models import Area, House, Facility
 from iHome.utils.response_code import RET
 from . import api
 from iHome.utils.common import login_required
@@ -61,6 +61,10 @@ def pub_house():
     house.deposit = deposit
     house.min_days = min_days
     house.max_days = max_days
+
+    # 给facilities属性赋值，实现多对多的关联关系 facility == [2,4,6,8,10]
+    facility = Facility.query.filter(Facility.id.in_(facility)).all()
+    house.facilities = facility
 
     # 4.保存房屋数据到数据库
     try:

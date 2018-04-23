@@ -36,7 +36,7 @@ $(document).ready(function(){
         //将表单中的被选中的checkbox筛选出来
         // 选中input框勾选中的标签，且name属性等于facility的所有标签
         // function中的参数i是第几个的下标，elem是当前的标签
-        $(':checkbox:checkbox[name=facility]').each(function (i, elem) {
+        $(':checkbox:checked[name=facility]').each(function (i, elem) {
 
            facilities[i] = elem.value;
         });
