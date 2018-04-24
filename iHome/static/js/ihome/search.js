@@ -45,7 +45,15 @@ function updateHouseData(action) {
         p:next_page
     };
     // TODO: 获取房屋列表信息
-    //$.get('/api')
+    $.get('/api/1.0/houses/search', function (response) {
+        if (response.errno='0'){
+            //渲染搜索界面
+            var html=template('house-list-tmpl',{'houses':response.data});
+            $('.house-list').html(html);
+        }else {
+            alert(response.errmsg);
+        }
+    })
 }
 
 
@@ -62,7 +70,7 @@ $(document).ready(function(){
 
 
     // 获取筛选条件中的城市区域信息
-    $.get("/api/v1.0/areas", function(data){
+    $.get("/api/1.0/areas", function(data){
         if ("0" == data.errno) {
             var areaId = queryData["aid"];
             if (areaId) {
