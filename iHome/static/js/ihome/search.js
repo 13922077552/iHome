@@ -45,7 +45,9 @@ function updateHouseData(action) {
         p:next_page
     };
     // TODO: 获取房屋列表信息
+    //$.get('/api')
 }
+
 
 $(document).ready(function(){
     var queryData = decodeQuery();
@@ -78,8 +80,11 @@ $(document).ready(function(){
                 }
             }
             // 在页面添加好城区选项信息后，更新展示房屋列表信息
+            // 搜索房屋数据是毁掉的方法
             updateHouseData("renew");
-            var windowHeight = $(window).height()
+
+
+            var windowHeight = $(window).height();
             // 为窗口的滚动添加事件函数
             window.onscroll=function(){
                 // var a = document.documentElement.scrollTop==0? document.body.clientHeight : document.documentElement.clientHeight;

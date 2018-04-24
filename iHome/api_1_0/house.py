@@ -9,6 +9,30 @@ from iHome import db, constants, redis_store
 from iHome.utils.image_storage import upload_image
 
 
+@api.route('/houses/search', methods=['GET'])
+def get_house_search():
+    """提供搜索数据
+    需求1.无条件查询所有的数据
+    1.直接查询所有的房屋数据
+    2.构造房屋数据
+    3.响应房屋数据
+    """
+    # 1.直接查询所有的数据
+    try:
+        houses = House.query.all()
+    except Exception as e:
+        current_app.logger.error(e)
+        return jsonify(errno=RET.DBERR, errmsg="查询房屋数据失败")
+
+    # 2.构造房屋数据
+    houses_dict_list = []
+    for house in houses:
+        houses_dict_list.append(house.to_basic_dict())
+
+    # 3.响应房屋数据
+    return jsonify(errno=RET.OK, errmsg="OK", data=houses_dict_list)
+
+
 @api.route('/houses/index', methods=['GET'])
 def get_houses_index():
     """⾸⻚房屋推荐接⼝
@@ -18,7 +42,7 @@ def get_houses_index():
     """
     # 1.查询最新发布的五个房屋信息
     try:
-        houses = House.query.order_by(House.create_time.desc()).limit(constants.HOUSE_LIST_PAGE_CAPACITY)
+        houses = House.query.order_by(House.create_time.desc()).limit(constants.HOME_PAGE_MAX_HOUSES )
     except Exception as e:
         current_app.logger.error(e)
         return jsonify(errno=RET.DBERR, errmsg="查询房屋数据失败")

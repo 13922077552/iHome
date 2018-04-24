@@ -99,7 +99,7 @@ $(document).ready(function(){
     $.get('api/1.0/areas', function (response) {
        if(response.errno == '0'){
            var html=template('area-list-tmpl', {'areas':response.data})
-           $('.area-list').html(html)
+           $('.area-list').html(html);
 
            // TODO: 城区按钮点击之后相关操作
             $(".area-list a").click(function(e){
