@@ -70,7 +70,7 @@ def get_house_search():
         # 根据排序规则筛选房屋
         if sk == 'booking':  # 根据订单量由高到低
             houes_query = houes_query.order_by(House.order_count.desc())
-        elif sk == 'price-ine':  # 价格低到⾼
+        elif sk == 'price-inc':  # 价格低到⾼
             houes_query = houes_query.order_by(House.price.asc())
         elif sk == 'price-des':  # 价格⾼到低
             houes_query = houes_query.order_by(House.price.desc())
