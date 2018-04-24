@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # 房屋模块
-from flask import current_app, jsonify, request, g
+from flask import current_app, jsonify, request, g, session
 from iHome.models import Area, House, Facility, HouseImage
 from iHome.utils.response_code import RET
 from . import api
@@ -27,6 +27,9 @@ def get_house_detail(house_id):
 
     # 2.构造房屋详情数据
     response_house_detail = house.to_full_dict()
+
+    # 尝试获取登录用户的信息：有可能未登录
+    longin_user_id = session.get('user_id', -1)
 
     # 3.响应房屋详情数据
     return jsonify(errno=RET.OK, errmsg='OK', data=response_house_detail)

@@ -10,6 +10,17 @@ from iHome.models import User
 from iHome.utils.common import login_required
 
 
+@api.route('/sessions', methods=['GET'])
+def chesk_login():
+    """判断用户是否登录
+    1.获取session信息
+    2.
+    """
+    user_id = session.get('user_id')
+    name = session.get('name')
+    return jsonify(errno=RET.OK, errmsg="OK", data={'user_id': user_id, 'name': name})
+
+
 @api.route('/sessions', methods=['DELETE'])
 @login_required
 def logout():
@@ -38,8 +49,6 @@ def login():
     json_dict = request.json
     mobile = json_dict.get('mobile')
     password = json_dict.get('password')
-    print mobile
-    print password
 
     # 2.校验参数：是否缺少参数，是否合法
     if not all([mobile, password]):
@@ -110,7 +119,7 @@ def register():
         return jsonify(errno=RET.PARAMERR, errmsg='短信验证码输入有误')
 
     # 判断用户是否已注册
-    if User.query.filter(User.mobile==mobile).first():
+    if User.query.filter(User.mobile == mobile).first():
         return jsonify(errno=RET.DATAEXIST, errmsg="该手机号已经注册")
 
     # 5.如果对比成功，就创建用户模型User对象，并给属性赋值
