@@ -25,6 +25,14 @@ def get_house_search():
     aid = request.args.get('aid')
     # 获取排序规则，new：根据发布时间倒叙，booking：根据订单量倒叙，price-inc:根据价格由低到高，price-des：根据价格由高到低
     sk = request.args.get('sk', 'new')
+    # 获取用户要看的页码
+    p = request.args.get('p')
+    # 校验参数
+    try:
+        p = int(p)
+    except Exception as e:
+        current_app.logger.error(e)
+        return jsonify(errno=RET.PARAMERR, errmsg="参数错误")
 
     # 1.直接查询所有的数据
     try:
@@ -43,7 +51,14 @@ def get_house_search():
             houses_query = houses_query.order_by(House.create_time.desc())
 
         # 取出筛选后端所有数据
-        houses = houses_query.all()
+        # houses = houses_query.all()
+        # 使用分页查询指定条数的数据:参数1：是要读取的页码，参数2，是每页数据条数，参数3，默认有错不会输出
+        paginate = houses_query.paginate(p, constants.HOUSE_LIST_PAGE_CAPACITY, False)
+        # 获取当前页模型对象
+        houses = paginate.items
+        # 获取总的页数
+        total_page = paginate.pages
+
     except Exception as e:
         current_app.logger.error(e)
         return jsonify(errno=RET.DBERR, errmsg="查询房屋数据失败")
@@ -53,8 +68,13 @@ def get_house_search():
     for house in houses:
         houses_dict_list.append(house.to_basic_dict())
 
+    # 重新构造响应数据
+    response_dict = {
+        'house': houses_dict_list,
+        'total_page': total_page
+    }
     # 3.响应房屋数据
-    return jsonify(errno=RET.OK, errmsg="OK", data=houses_dict_list)
+    return jsonify(errno=RET.OK, errmsg="OK", data=response_dict)
 
 
 @api.route('/houses/index', methods=['GET'])
