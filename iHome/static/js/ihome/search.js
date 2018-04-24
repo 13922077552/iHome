@@ -45,7 +45,7 @@ function updateHouseData(action) {
         p:next_page
     };
     // TODO: 获取房屋列表信息
-    $.get('/api/1.0/houses/search', function (response) {
+    $.get('/api/1.0/houses/search', params, function (response) {
         if (response.errno='0'){
             //渲染搜索界面
             var html=template('house-list-tmpl',{'houses':response.data});

@@ -13,13 +13,24 @@ from iHome.utils.image_storage import upload_image
 def get_house_search():
     """提供搜索数据
     需求1.无条件查询所有的数据
+    需求2.根据区域搜索房屋
+    0.获取搜索使用的参数
     1.直接查询所有的房屋数据
     2.构造房屋数据
     3.响应房屋数据
     """
+    # 0.获取搜索使用的参数
+    # 获取？后的参数   127.0.0.1/index?aid = xxx
+    aid = request.args.get('aid')
+
     # 1.直接查询所有的数据
     try:
-        houses = House.query.all()
+        houses_query = House.query
+        # 根据城区信息搜索房屋
+        if aid:
+            houses_query = houses_query.filter(House.area_id == aid)
+        # 取出筛选后端所有数据
+        houses = houses_query.all()
     except Exception as e:
         current_app.logger.error(e)
         return jsonify(errno=RET.DBERR, errmsg="查询房屋数据失败")
@@ -42,7 +53,7 @@ def get_houses_index():
     """
     # 1.查询最新发布的五个房屋信息
     try:
-        houses = House.query.order_by(House.create_time.desc()).limit(constants.HOME_PAGE_MAX_HOUSES )
+        houses = House.query.order_by(House.create_time.desc()).limit(constants.HOME_PAGE_MAX_HOUSES)
     except Exception as e:
         current_app.logger.error(e)
         return jsonify(errno=RET.DBERR, errmsg="查询房屋数据失败")
@@ -211,7 +222,7 @@ def pub_house():
         return jsonify(errno=RET.DBERR, errmsg="保存房屋数据失败")
 
     # 5.响应发布新的房源的结果
-    return jsonify(errno=RET.OK, errmsg="发布新房源成功", data={'house_id':house.id})
+    return jsonify(errno=RET.OK, errmsg="发布新房源成功", data={'house_id': house.id})
 
 
 @api.route('/areas', methods=['GET'])
@@ -226,7 +237,7 @@ def get_areas():
         area_dict_list = redis_store.get('Areas')
         # 如果缓存的城区数据存在，就转成字典列表响应出去
         if area_dict_list:
-            return jsonify(errno=RET.OK, errmsg="OK",data=eval(area_dict_list))
+            return jsonify(errno=RET.OK, errmsg="OK", data=eval(area_dict_list))
     except Exception as e:
         current_app.logger.error(e)
 
@@ -244,7 +255,7 @@ def get_areas():
 
     # 缓存城区数据，set：储存
     try:
-        redis_store.set('Areas', area_dict_list,constants.AREA_INFO_REDIS_EXPIRES)
+        redis_store.set('Areas', area_dict_list, constants.AREA_INFO_REDIS_EXPIRES)
     except Exception as e:
         current_app.logger.error(e)
 
