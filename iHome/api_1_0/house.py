@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 # 房屋模块
 from flask import current_app, jsonify, request, g, session
-from iHome.models import Area, House, Facility, HouseImage
+from iHome.models import Area, House, Facility, HouseImage, Order
 from iHome.utils.response_code import RET
 from . import api
 from iHome.utils.common import login_required
 from iHome import db, constants, redis_store
 from iHome.utils.image_storage import upload_image
+import datetime
 
 
 @api.route('/houses/search', methods=['GET'])
@@ -27,33 +28,57 @@ def get_house_search():
     sk = request.args.get('sk', 'new')
     # 获取用户要看的页码
     p = request.args.get('p')
+    # 入住时间和离开时间
+    sd = request.args.get('sd', '')  # 2017-04-20
+    ed = request.args.get('ed', '')
+    start_date = None
+    end_date = None
     # 校验参数
     try:
         p = int(p)
+        if sd:
+            start_date = datetime.datetime.strptime(sd, '%Y-%m-%d')
+        if ed:
+            end_date = datetime.datetime.strptime(ed, '%Y-%m-%d')
+        if start_date and end_date:  # 入住时间必须小于离开时间
+            assert start_date < end_date, Exception(u'入住时间有误')
     except Exception as e:
         current_app.logger.error(e)
         return jsonify(errno=RET.PARAMERR, errmsg="参数错误")
 
     # 1.直接查询所有的数据
     try:
-        houses_query = House.query
+        houes_query = House.query
         # 根据城区信息搜索房屋
         if aid:
-            houses_query = houses_query.filter(House.area_id == aid)
+            houes_query = houes_query.filter(House.area_id == aid)
+
+        conflict_orders = []
+        # 根据用户选中的入住和离开时间，筛选出对于的房屋信息（需要将已经在订单中的时间冲突的房屋过滤掉）
+        if start_date and end_date:
+            conflict_orders = Order.query.filter(end_date > Order.begin_date, start_date < Order.end_date).all()
+        elif start_date:
+            conflict_orders = Order.query.filter(start_date > Order.end_date).all()
+        elif end_date:
+            conflict_orders = Order.query.filter(end_date < Order.begin_date).all()
+
+        # 当发现有时间冲突的房屋时，才需要筛选出来
+        if conflict_orders:
+            conflict_house_ids = [order.house_id for order in conflict_orders]
+            houes_query = houes_query.filter(House.id.notin_(conflict_house_ids))
+
         # 根据排序规则筛选房屋
         if sk == 'booking':  # 根据订单量由高到低
-            houses_query = houses_query.order_by(House.order_count.desc())
+            houes_query = houes_query.order_by(House.order_count.desc())
         elif sk == 'price-ine':  # 价格低到⾼
-            houses_query = houses_query.order_by(House.price.asc())
+            houes_query = houes_query.order_by(House.price.asc())
         elif sk == 'price-des':  # 价格⾼到低
-            houses_query = houses_query.order_by(House.price.desc())
+            houes_query = houes_query.order_by(House.price.desc())
         else:  # 根据发布时间倒序
-            houses_query = houses_query.order_by(House.create_time.desc())
+            houes_query = houes_query.order_by(House.create_time.desc())
 
-        # 取出筛选后端所有数据
-        # houses = houses_query.all()
         # 使用分页查询指定条数的数据:参数1：是要读取的页码，参数2，是每页数据条数，参数3，默认有错不会输出
-        paginate = houses_query.paginate(p, constants.HOUSE_LIST_PAGE_CAPACITY, False)
+        paginate = houes_query.paginate(p, constants.HOUSE_LIST_PAGE_CAPACITY, False)
         # 获取当前页模型对象
         houses = paginate.items
         # 获取总的页数
