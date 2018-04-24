@@ -21,7 +21,10 @@ def get_house_search():
     """
     # 0.获取搜索使用的参数
     # 获取？后的参数   127.0.0.1/index?aid = xxx
+    # 获取城区信息
     aid = request.args.get('aid')
+    # 获取排序规则，new：根据发布时间倒叙，booking：根据订单量倒叙，price-inc:根据价格由低到高，price-des：根据价格由高到低
+    sk = request.args.get('sk', 'new')
 
     # 1.直接查询所有的数据
     try:
@@ -29,6 +32,16 @@ def get_house_search():
         # 根据城区信息搜索房屋
         if aid:
             houses_query = houses_query.filter(House.area_id == aid)
+        # 根据排序规则筛选房屋
+        if sk == 'booking':  # 根据订单量由高到低
+            houses_query = houses_query.order_by(House.order_count.desc())
+        elif sk == 'price-ine':  # 价格低到⾼
+            houses_query = houses_query.order_by(House.price.asc())
+        elif sk == 'price-des':  # 价格⾼到低
+            houses_query = houses_query.order_by(House.price.desc())
+        else:  # 根据发布时间倒序
+            houses_query = houses_query.order_by(House.create_time.desc())
+
         # 取出筛选后端所有数据
         houses = houses_query.all()
     except Exception as e:
