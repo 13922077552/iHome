@@ -7,6 +7,7 @@ import datetime
 from iHome.models import House, Order
 from iHome import db
 
+
 @api.route('/orders', methods=['POST'])
 @login_required
 def add_order():
@@ -28,18 +29,18 @@ def add_order():
     user_id = g.user_id
     # 获取传入的参数
     params = request.json
-    start_date_str = params.get('house_id')
+    start_date_str = params.get('start_date')
     end_date_str = params.get('end_date')
     house_id = params.get('house_id')
     # 3 校验参数
     if not all([start_date_str, end_date_str, house_id]):
         return jsonify(errno=RET.PARAMERR, errmsg="参数不能为空")
     try:
-        start_date = datetime.datetime.strptime(start_date_str, '%Y-%m-%s')
-        end_date = datetime.datetime.strptime(end_date_str, '%Y-%m-%s')
+        start_date = datetime.datetime.strptime(start_date_str, '%Y-%m-%d')
+        end_date = datetime.datetime.strptime(end_date_str, '%Y-%m-%d')
         assert start_date < end_date, Exception('开始日期大于结束日期')
         # 4 计算入住天数
-        days = end_date - start_date
+        days = (end_date - start_date).days
     except Exception as e:
         current_app.logger.error(e)
         return jsonify(errno=RET.PARAMERR, errmsg="⼊住时间有误")
@@ -59,7 +60,8 @@ def add_order():
 
     # 7 查询是否存在冲突的订单
     try:
-        conflict_orders = Order.query.filter(Order.house_id==house_id, end_date>Order.begin_date, start_date<Order.end_date )
+        conflict_orders = Order.query.filter(Order.house_id == house_id, end_date > Order.begin_date,
+                                             start_date < Order.end_date).all()
     except Exception as e:
         current_app.logger.error(e)
         return jsonify(errno=RET.DBERR, errmsg="查询冲突订单失败")

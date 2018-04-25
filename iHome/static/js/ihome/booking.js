@@ -66,5 +66,39 @@ $(document).ready(function(){
      }
     });
     // TODO: 订单提交
-    
+    $('.submit-btn').on('click', function () {
+
+        var start_date = $('#start-date').val();
+        var end_date = $('#end-date').val();
+        if (!start_date) {
+         alert('请输⼊⼊住时间');
+         return;
+        }
+        if (!end_date) {
+         alert('请输⼊离开时间');
+         return;
+        }
+        var params = {
+            'house_id': houseId,
+            'start_date': start_date,
+            'end_date':end_date
+        };
+
+        $.ajax({
+            url:'/api/1.0/orders',
+            type:'post',
+            data:JSON.stringify(params),
+            contentType:'application/json',
+            headers:{'X-CSRFToken':getCookie('csrf_token')},
+            success:function (response) {
+                if (response=='0'){
+                    location.href='orders.html';
+                }else if(response=='4101'){
+                    location.href='login.html'
+                }else {
+                    alert(response.errmsg)
+                }
+            }
+        })
+    });
 });
