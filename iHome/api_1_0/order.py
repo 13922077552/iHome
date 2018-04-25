@@ -8,6 +8,44 @@ from iHome.models import House, Order, User
 from iHome import db
 
 
+@api.route('/orders/<int:order_id>', methods=['PUT'])
+@login_required
+def set_order_status(order_id):
+    """接受订单
+    0.判断是否登录
+    1.获取order_id,并查询订单,状态要是"待接单"
+    2.判断当前登录用户是否是该订单的房东
+    3.修改订单状态，并保存到数据库
+    4.响应请求
+    """
+
+    user_id = g.user_id
+    # 1.获取order_id,并查询订单,状态要是"待接单"
+    try:
+        order = Order.query.filter(Order.id==order_id, Order.status == 'WAIT_ACCEPT').all()
+    except Exception as e:
+        current_app.logger.error(e)
+        return jsonify(errno=RET.DBERR, errmsg="查询数据失败")
+    if not order:
+        return jsonify(errno=RET.NODATA, errmsg="订单不存在")
+
+    # # 2.判断当前登录用户是否是该订单的房东
+    order_user_id = order.user_id
+    if order_user_id != user_id:
+        return jsonify(errno=RET.ROLEERR, errmsg="用户身份错误")
+    # 3.修改订单状态，并保存到数据库
+    order.status = 'WAIT_COMMENT'
+    try:
+        db.commit()
+    except Exception as e:
+        current_app.logger.error(e)
+        db.session.rollback()
+        return jsonify(errno=RET.DBERR, errmsg="修改订单信息失败")
+
+    # 响应数据
+    return jsonify(errno=RET.OK, errmsg="OK")
+
+
 @api.route('/orders', methods=['GET'])
 @login_required
 def get_order_list():
@@ -25,11 +63,19 @@ def get_order_list():
     if role not in ['custom', 'landlord']:
         return jsonify(errno=RET.PARAMERR, errmsg='⽤户身份信息错误')
     if role == 'custom':
-        orders = Order.query.filter(Order.user_id == user_id).all()
+        try:
+            orders = Order.query.filter(Order.user_id == user_id).all()
+        except Exception as e:
+            current_app.logger.error(e)
+            return jsonify(errno=RET.DBERR, errmsg="查询订单数据失败")
     else:
         # 查找客户订单
-        user = User.query.get(user_id)
-        orders = Order.query.filter(Order.house_id.in_([house.id for house in user.houses]))
+        try:
+            user = User.query.get(user_id)
+            orders = Order.query.filter(Order.house_id.in_([house.id for house in user.houses]))
+        except Exception as e:
+            current_app.logger.error(e)
+            return jsonify(errno=RET.DBERR, errmsg="查询订单数据失败")
 
     order_dict_list = []
     if orders:
