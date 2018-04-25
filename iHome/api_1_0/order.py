@@ -19,7 +19,13 @@ def set_order_status(order_id):
     4.响应请求
     """
 
+    # 获取接单还是拒单的操作
+    action = request.args.get('action')
+    if action not in ['accept', 'reject']:
+        return jsonify(errno=RET.PARAMERR, errmsg="参数错误")
+
     user_id = g.user_id
+
     # 1.获取order_id,并查询订单,状态要是"待接单"
     try:
         order = Order.query.filter(Order.id==order_id, Order.status == 'WAIT_ACCEPT').first()
@@ -29,12 +35,20 @@ def set_order_status(order_id):
     if not order:
         return jsonify(errno=RET.NODATA, errmsg="订单不存在")
 
-    # # 2.判断当前登录用户是否是该订单的房东
+    # 2.判断当前登录用户是否是该订单的房东
     order_user_id = order.house.user_id
     if order_user_id != user_id:
         return jsonify(errno=RET.ROLEERR, errmsg="用户身份错误")
+
     # 3.修改订单状态，并保存到数据库
-    order.status = 'WAIT_COMMENT'
+    if action == 'accept':
+        order.status = 'WAIT_COMMENT'
+    else:
+        order.status = 'REJECTED'
+        reason = request.json.get('reason')
+        if not reason:
+            return jsonify(errno=RET.PARAMERR, errmsg="缺少拒单原因")
+        order.comment = reason
     try:
         db.session.commit()
     except Exception as e:

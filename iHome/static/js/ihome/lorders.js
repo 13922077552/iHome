@@ -32,7 +32,7 @@ $(document).ready(function(){
          $(".modal-accept").on('click', function () {
              var orderId = $(this).attr('order-id');
              $.ajax({
-                 url: '/api/1.0/orders/'+orderId,
+                 url: '/api/1.0/orders/'+orderId + '?action=accept',
                  type: 'put',
                  headers: {'X-CSRFToken':getCookie('csrf_token')},
                  success:function (response) {
@@ -48,7 +48,42 @@ $(document).ready(function(){
                  }
              }
              });
-        });
+          });
+
+         // TODO 查询成功之后需要设置拒的处理
+         $(".order-reject").on("click", function(){
+             var orderId = $(this).parents("li").attr("order-id");
+             $(".modal-reject").attr("order-id", orderId);
+         });
+         // 监听拒单的确认按钮点击事件
+         $(".modal-reject").on('click', function () {
+             var orderId = $(this).attr('order-id');
+             // 获取⽤户输⼊的拒单原因
+             var reason = $('#reject-reason').val();
+             if (!reason) {
+                 alert('请输⼊拒单原因');
+             return;
+             }
+             $.ajax({
+                 url: '/api/1.0/orders/'+orderId + '?action=reject',
+                 type: 'put',
+                 data:JSON.stringify({'reason':reason}),
+                 contentType:'application/json',
+                 headers: {'X-CSRFToken':getCookie('csrf_token')},
+             success:function (response) {
+             if (response.errno == '0') {
+                 // 1. 设置订单状态的html
+                 $(".orders-list>li[order-id="+ orderId +"]>div.order-content>div.order-text>ul li:eq(4)>span").html("已拒单");
+                 // 2. 隐藏接单和拒单操作
+                 $("ul.orders-list>li[order-id="+ orderId +"]>div.order-title>div.order-operate").hide();
+                 // 3. 隐藏弹出的框
+             $("#reject-modal").modal("hide");
+             } else {
+             alert(response,errmsg);
+                }
+             }
+         });
+     });
 
 
          } else if (response.errno == '4101') {
@@ -58,8 +93,6 @@ $(document).ready(function(){
          }
     });
 
-    $(".order-reject").on("click", function(){
-        var orderId = $(this).parents("li").attr("order-id");
-        $(".modal-reject").attr("order-id", orderId);
-    });
+
+
 });
