@@ -8,6 +8,47 @@ from iHome.models import House, Order, User
 from iHome import db
 
 
+@api.route('/orders/comment/<int:order_id>', methods=['POST'])
+@login_required
+def set_orderr_comment(order_id):
+    """订单评价
+    0.判断用户是否登录
+    1.接受参数，order_id,评论信息,并校验
+    2.使⽤order_id查询订单,状态要是 "待评价"
+    3.修改订单的状态为 "已完成"，保存评价信息
+    4.保存数据到数据库
+    5.响应结果
+    """
+    # 1.接受参数，order_id,评论信息,并校验
+    comment = request.json.get('comment')
+    if not comment:
+        return jsonify(errno=RET.PARAMERR, errmsg="缺少必传参数")
+
+    # 2.使⽤order_id查询订单,状态要是 "待评价"
+    try:
+        order = Order.query.filter(Order.id == order_id, Order.status == 'WAIT_COMMENT', Order.user_id == g.user_id).first()
+    except Exception as e:
+        current_app.logger.error(e)
+        return jsonify(errno=RET.DBERR, errmsg="查询订单数据失败")
+    if not order:
+        return jsonify(errno=RET.NODATA, errmsg="订单不存在")
+
+    # 3.修改订单的状态为 "已完成"，保存评价信息
+    order.comment = comment
+    order.status = 'COMPLETE'
+
+    # 4.保存数据到数据库
+    try:
+        db.session.commit()
+    except Exception as e:
+        current_app.logger.error(e)
+        db.session.rollback()
+        return jsonify(errno=RET.DBERR, errmsg="保存评论信息失败")
+
+    # 5.响应结果
+    return jsonify(errno=RET.OK, errmsg="OK")
+
+
 @api.route('/orders/<int:order_id>', methods=['PUT'])
 @login_required
 def set_order_status(order_id):
@@ -28,7 +69,7 @@ def set_order_status(order_id):
 
     # 1.获取order_id,并查询订单,状态要是"待接单"
     try:
-        order = Order.query.filter(Order.id==order_id, Order.status == 'WAIT_ACCEPT').first()
+        order = Order.query.filter(Order.id == order_id, Order.status == 'WAIT_ACCEPT').first()
     except Exception as e:
         current_app.logger.error(e)
         return jsonify(errno=RET.DBERR, errmsg="查询数据失败")
