@@ -4,14 +4,14 @@ from iHome.utils.common import login_required
 from flask import g, request, jsonify, current_app, session
 from iHome.utils.response_code import RET
 import datetime
-from iHome.models import House, Order
+from iHome.models import House, Order, User
 from iHome import db
 
 
 @api.route('/orders', methods=['GET'])
 @login_required
 def get_order_list():
-    """获取我的订单
+    """获取我的订单和客户订单
     0.判断是否登录
     1.获取用户id
     3.查找数据库
@@ -19,13 +19,17 @@ def get_order_list():
     """
     # 获取当前用户的id
     user_id = g.user_id
-
+    role = request.args.get('role')
     # 查找数据库
-    try:
+    # 查找我的订单列表
+    if role not in ['custom', 'landlord']:
+        return jsonify(errno=RET.PARAMERR, errmsg='⽤户身份信息错误')
+    if role == 'custom':
         orders = Order.query.filter(Order.user_id == user_id).all()
-    except Exception as e:
-        current_app.logger.error(e)
-        return jsonify(errno=RET.DBERR, errmsg="查询数据失败")
+    else:
+        # 查找客户订单
+        user = User.query.get(user_id)
+        orders = Order.query.filter(Order.house_id.in_([house.id for house in user.houses]))
 
     order_dict_list = []
     if orders:
