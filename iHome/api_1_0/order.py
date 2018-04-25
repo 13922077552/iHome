@@ -22,7 +22,7 @@ def set_order_status(order_id):
     user_id = g.user_id
     # 1.获取order_id,并查询订单,状态要是"待接单"
     try:
-        order = Order.query.filter(Order.id==order_id, Order.status == 'WAIT_ACCEPT').all()
+        order = Order.query.filter(Order.id==order_id, Order.status == 'WAIT_ACCEPT').first()
     except Exception as e:
         current_app.logger.error(e)
         return jsonify(errno=RET.DBERR, errmsg="查询数据失败")
@@ -30,13 +30,13 @@ def set_order_status(order_id):
         return jsonify(errno=RET.NODATA, errmsg="订单不存在")
 
     # # 2.判断当前登录用户是否是该订单的房东
-    order_user_id = order.user_id
+    order_user_id = order.house.user_id
     if order_user_id != user_id:
         return jsonify(errno=RET.ROLEERR, errmsg="用户身份错误")
     # 3.修改订单状态，并保存到数据库
     order.status = 'WAIT_COMMENT'
     try:
-        db.commit()
+        db.session.commit()
     except Exception as e:
         current_app.logger.error(e)
         db.session.rollback()
