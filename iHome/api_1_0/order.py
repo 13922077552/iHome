@@ -8,6 +8,32 @@ from iHome.models import House, Order
 from iHome import db
 
 
+@api.route('/orders', methods=['GET'])
+@login_required
+def get_order_list():
+    """获取我的订单
+    0.判断是否登录
+    1.获取用户id
+    3.查找数据库
+    4.响应数据
+    """
+    # 获取当前用户的id
+    user_id = g.user_id
+
+    # 查找数据库
+    try:
+        orders = Order.query.filter(Order.user_id == user_id).all()
+    except Exception as e:
+        current_app.logger.error(e)
+        return jsonify(errno=RET.DBERR, errmsg="查询数据失败")
+
+    order_dict_list = []
+    if orders:
+        for order in orders:
+            order_dict_list.append(order.to_dict())
+    return jsonify(errno=RET.OK, errmsg="OK", data=order_dict_list)
+
+
 @api.route('/orders', methods=['POST'])
 @login_required
 def add_order():
