@@ -1,12 +1,43 @@
 # -*- coding: utf-8 -*-
 
 from flask import session, jsonify, current_app, request, g
-from iHome.models import User
+from iHome.models import User, House
 from iHome.utils.response_code import RET
 from . import api
 from iHome.utils.image_storage import upload_image
 from iHome import constants, db
 from iHome.utils.common import login_required
+
+
+@api.route('/users/houses', methods=['GET'])
+@login_required
+def get_user_house():
+    """我的房源
+    0.判断是否登录
+    1.获取当前用户的id
+    2.查询该用户的所有房屋
+    3.构造响应数据
+    4.返回数据
+    """
+    # 1.获取当前用户的id
+    user_id = g.user_id
+
+    # 2.查询该用户的所有房屋
+    try:
+        houses = House.query.filter(House.user_id == user_id).all()
+    except Exception as e:
+        current_app.logger.error(e)
+        return jsonify(errno=RET.DBERR, errmsg="查询房屋数据失败")
+
+    # 3.构造响应数据
+    heuse_dict_list = []
+    for house in houses:
+        heuse_dict_list.append(house.to_basic_dict())
+
+    # 4.返回数据
+    return jsonify(errno=RET.OK, errmsg="OK", data=heuse_dict_list)
+
+
 
 
 @api.route('/users/auth', methods=['GET'])
